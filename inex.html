@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Performance Analytics Dashboard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-icon">🎓</div>
+            <div>
+                <h2>EduInsight</h2>
+                <span>Analytics</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+
+            <a href="#" class="menu-item active">
+                <span>🏠</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#studentsSection" class="menu-item">
+                <span>👨‍🎓</span>
+                <span>Students</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <span>📊</span>
+                <span>Performance</span>
+            </a>
+
+            <a href="#attendanceSection" class="menu-item">
+                <span>📅</span>
+                <span>Attendance</span>
+            </a>
+
+            <a href="#analyticsSection" class="menu-item">
+                <span>📈</span>
+                <span>Analytics</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#" class="menu-item">
+                <span>⚙️</span>
+                <span>Settings</span>
+            </a>
+
+            <a href="#" class="menu-item">
+                <span>🚪</span>
+                <span>Logout</span>
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+
+        <!-- ===== TOP NAVBAR ===== -->
+        <header class="topbar">
+
+            <div>
+                <p class="welcome-text">Welcome back 👋</p>
+                <h1>Student Performance Dashboard</h1>
+            </div>
+
+            <div class="profile">
+                <div class="notification">🔔</div>
+
+                <div class="profile-info">
+                    <strong>Admin</strong>
+                    <span>Teacher</span>
+                </div>
+
+                <div class="profile-avatar">
+                    A
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- ===== KPI CARDS ===== -->
+        <section class="kpi-section">
+
+            <div class="kpi-card">
+                <div class="kpi-icon students-icon">👨‍🎓</div>
+                <div>
+                    <p>Total Students</p>
+                    <h2 id="totalStudents">50</h2>
+                    <span class="positive">↑ 8% this semester</span>
+                </div>
+            </div>
+
+
+            <div class="kpi-card">
+                <div class="kpi-icon marks-icon">📚</div>
+                <div>
+                    <p>Average Marks</p>
+                    <h2 id="averageMarks">78.5%</h2>
+                    <span class="positive">↑ 4.2% improvement</span>
+                </div>
+            </div>
+
+
+            <div class="kpi-card">
+                <div class="kpi-icon attendance-icon">📅</div>
+                <div>
+                    <p>Average Attendance</p>
+                    <h2 id="averageAttendance">84%</h2>
+                    <span class="positive">↑ 3.5% this month</span>
+                </div>
+            </div>
+
+
+            <div class="kpi-card">
+                <div class="kpi-icon pass-icon">🏆</div>
+                <div>
+                    <p>Pass Percentage</p>
+                    <h2 id="passPercentage">92%</h2>
+                    <span class="positive">↑ 5% improvement</span>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- ===== CHART AREA ===== -->
+        <section class="dashboard-grid">
+
+            <!-- Performance Chart -->
+            <div class="dashboard-card large-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Performance Overview</h3>
+                        <p>Average marks by subject</p>
+                    </div>
+
+                    <select id="performanceFilter">
+                        <option>All Subjects</option>
+                        <option>DBMS</option>
+                        <option>Python</option>
+                        <option>DSA</option>
+                        <option>Web Development</option>
+                        <option>OS</option>
+                    </select>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="performanceChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <!-- Pass / Fail Chart -->
+            <div class="dashboard-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Result Overview</h3>
+                        <p>Pass vs Fail students</p>
+                    </div>
+                </div>
+
+                <div class="chart-container small-chart">
+                    <canvas id="resultChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <!-- Attendance Chart -->
+            <div class="dashboard-card large-card" id="attendanceSection">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Attendance Analysis</h3>
+                        <p>Monthly attendance percentage</p>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="attendanceChart"></canvas>
+                </div>
+
+            </div>
+
+
+            <!-- Top Performers -->
+            <div class="dashboard-card">
+
+                <div class="card-header">
+                    <div>
+                        <h3>Top Performers</h3>
+                        <p>Highest average marks</p>
+                    </div>
+                </div>
+
+                <div class="student-list" id="topPerformersList">
+                     <!-- Top performers will be loaded from Excel -->
+                </div>
+  
+
+            </div>
+
+        </section>
+
+
+        <!-- ===== INSIGHTS ===== -->
+        <section class="dashboard-card insights-card" id="analyticsSection">
+
+            <div class="card-header">
+                <div>
+                    <h3>📌 Key Insights</h3>
+                    <p>Important observations from student data</p>
+                </div>
+            </div>
+
+            <div class="insights-grid">
+
+                <div class="insight">
+                    <span>📈</span>
+                    <div>
+                        <strong>Strong Performance</strong>
+                        <p>DBMS has the highest average marks.</p>
+                    </div>
+                </div>
+
+                <div class="insight">
+                    <span>🎯</span>
+                    <div>
+                        <strong>Good Attendance</strong>
+                        <p>Average attendance is above 80%.</p>
+                    </div>
+                </div>
+
+                <div class="insight">
+                    <span>⚠️</span>
+                    <div>
+                        <strong>Needs Attention</strong>
+                        <p>Some students need academic support.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- ===== STUDENTS SECTION ===== -->
+        <section class="dashboard-card students-section" id="studentsSection">
+
+            <div class="card-header">
+               <div>
+                  <h3>👨‍🎓 Students</h3>
+                  <p>Complete student performance and attendance data</p>
+                </div>
+            </div>
+
+            <!-- Search & Filters -->
+            <div class="student-controls">
+
+               <input
+                   type="text"
+                   id="studentSearch"
+                   placeholder="🔎 Search student name or ID..."
+                >
+        
+                <select id="resultFilter">
+                    <option value="All">All Results</option>
+                    <option value="Pass">Pass</option>
+                    <option value="Fail">Fail</option>
+                </select>
+
+                <select id="departmentFilter">
+                    <option value="All">All Departments</option>
+                    <option value="IT">IT</option>
+                    <option value="CSE">CSE</option>
+                    <option value="ECE">ECE</option>
+                </select>
+
+            </div>
+        
+            <!-- Students Table -->
+            <div class="table-container">
+        
+                <table>
+        
+                    <thead>
+                        <tr>
+                             <th>Student ID</th>
+                             <th>Student Name</th>
+                             <th>Gender</th>
+                             <th>Department</th>
+                             <th>Semester</th>
+                             <th>Average Marks</th>
+                             <th>Attendance</th>
+                             <th>Result</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentsTableBody">
+                        <!-- Excel data will appear here -->
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p>© 2026 EduInsight • Student Performance & Attendance Analytics</p>
+        </footer>
+
+    </main>
+
+
+    <!-- Excel Library -->
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>

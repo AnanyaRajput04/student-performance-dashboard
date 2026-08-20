@@ -1,0 +1,669 @@
+/* ================================
+   GLOBAL STYLES
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ================================
+   SIDEBAR
+================================ */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 245px;
+    height: 100vh;
+    background: #172554;
+    color: white;
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 10px 30px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    background: #3b82f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.logo h2 {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.logo span {
+    font-size: 11px;
+    color: #bfdbfe;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 15px;
+    border-radius: 10px;
+    color: #cbd5e1;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+
+.menu-item:hover {
+    background: #1e3a8a;
+    color: white;
+    transform: translateX(3px);
+}
+
+.menu-item.active {
+    background: #3b82f6;
+    color: white;
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.25);
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+
+/* ================================
+   MAIN CONTENT
+================================ */
+
+.main-content {
+    margin-left: 245px;
+    padding: 28px 35px;
+    min-height: 100vh;
+}
+
+
+/* ================================
+   TOPBAR
+================================ */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.welcome-text {
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+
+.topbar h1 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #172554;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.notification {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+    cursor: pointer;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.profile-info strong {
+    font-size: 13px;
+}
+
+.profile-info span {
+    font-size: 11px;
+    color: #64748b;
+}
+
+.profile-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #dbeafe;
+    color: #1d4ed8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+
+/* ================================
+   KPI CARDS
+================================ */
+
+.kpi-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.kpi-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+    transition: 0.3s ease;
+}
+
+.kpi-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.1);
+}
+
+.kpi-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+}
+
+.students-icon {
+    background: #dbeafe;
+}
+
+.marks-icon {
+    background: #dcfce7;
+}
+
+.attendance-icon {
+    background: #fef3c7;
+}
+
+.pass-icon {
+    background: #f3e8ff;
+}
+
+.kpi-card p {
+    color: #64748b;
+    font-size: 11px;
+    margin-bottom: 4px;
+}
+
+.kpi-card h2 {
+    color: #172554;
+    font-size: 23px;
+    margin-bottom: 3px;
+}
+
+.positive {
+    color: #16a34a;
+    font-size: 9px;
+}
+
+
+/* ================================
+   DASHBOARD GRID
+================================ */
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 15px;
+    padding: 22px;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.06);
+}
+
+.large-card {
+    min-height: 350px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.card-header h3 {
+    color: #172554;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.card-header p {
+    color: #94a3b8;
+    font-size: 10px;
+    margin-top: 3px;
+}
+
+.card-header select {
+    border: 1px solid #e2e8f0;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: #475569;
+    font-family: inherit;
+    font-size: 10px;
+    outline: none;
+    cursor: pointer;
+    background: white;
+}
+
+.card-header select:focus {
+    border-color: #3b82f6;
+}
+
+
+/* ================================
+   CHARTS
+================================ */
+
+.chart-container {
+    position: relative;
+    height: 270px;
+    width: 100%;
+}
+
+.small-chart {
+    height: 250px;
+}
+
+
+/* ================================
+   TOP PERFORMERS
+================================ */
+
+.student-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.student-row {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.student-row:last-child {
+    border-bottom: none;
+}
+
+.student-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #eff6ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.student-details {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.student-details strong {
+    font-size: 11px;
+}
+
+.student-details span {
+    color: #94a3b8;
+    font-size: 9px;
+}
+
+.student-score {
+    color: #2563eb;
+    font-size: 12px;
+}
+
+
+/* ================================
+   INSIGHTS
+================================ */
+
+.insights-card {
+    margin-top: 20px;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.insight {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 12px;
+}
+
+.insight > span {
+    font-size: 20px;
+}
+
+.insight strong {
+    font-size: 11px;
+    color: #334155;
+}
+
+.insight p {
+    color: #64748b;
+    font-size: 9px;
+    margin-top: 4px;
+    line-height: 1.5;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+    text-align: center;
+    padding: 25px 0 10px;
+    color: #94a3b8;
+    font-size: 10px;
+}
+
+
+/* ================================
+   RESPONSIVE DESIGN
+================================ */
+
+@media (max-width: 1100px) {
+
+    .kpi-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 20px 10px;
+    }
+
+    .logo {
+        justify-content: center;
+        padding: 5px 0 30px;
+    }
+
+    .logo > div:last-child {
+        display: none;
+    }
+
+    .menu-item {
+        justify-content: center;
+        padding: 13px 5px;
+    }
+
+    .menu-item span:last-child {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        padding: 20px;
+    }
+
+    .topbar h1 {
+        font-size: 20px;
+    }
+
+    .profile-info {
+        display: none;
+    }
+
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .kpi-section {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        align-items: flex-start;
+    }
+
+    .topbar h1 {
+        font-size: 17px;
+    }
+
+    .notification {
+        display: none;
+    }
+
+    .dashboard-card {
+        padding: 16px;
+    }
+
+    .card-header {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .chart-container {
+        height: 220px;
+    }
+}
+/* ================================
+   STUDENTS SECTION
+================================ */
+
+.students-section {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.student-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.student-controls input,
+.student-controls select {
+    padding: 10px 13px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    color: #475569;
+    background: white;
+    outline: none;
+}
+
+.student-controls input {
+    flex: 1;
+    min-width: 230px;
+}
+
+.student-controls select {
+    min-width: 145px;
+    cursor: pointer;
+}
+
+.student-controls input:focus,
+.student-controls select:focus {
+    border-color: #3b82f6;
+}
+
+
+/* ================================
+   STUDENTS TABLE
+================================ */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 850px;
+}
+
+.table-container th {
+    background: #f8fafc;
+    color: #475569;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 13px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.table-container td {
+    padding: 13px 12px;
+    font-size: 10px;
+    color: #475569;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.table-container tbody tr {
+    transition: 0.2s ease;
+}
+
+.table-container tbody tr:hover {
+    background: #f8fafc;
+}
+
+.table-container td:nth-child(1) {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.table-container td:nth-child(2) {
+    color: #1e293b;
+    font-weight: 500;
+}
+
+
+/* ================================
+   RESULT BADGE
+================================ */
+
+.result-pass {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 20px;
+    background: #dcfce7;
+    color: #15803d;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.result-fail {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 20px;
+    background: #fee2e2;
+    color: #dc2626;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+
+/* ================================
+   MOBILE TABLE
+================================ */
+
+@media (max-width: 768px) {
+
+    .student-controls {
+        flex-direction: column;
+    }
+
+    .student-controls input,
+    .student-controls select {
+        width: 100%;
+    }
+
+    .students-section {
+        padding: 16px;
+    }
+}
+html {
+    scroll-behavior: smooth;
+}
